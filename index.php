@@ -45,25 +45,25 @@
           <div class="row">
             <div class="col-md-6 mb-4">
                 <figure>
-                    <img src="assets/img/study-uk.png" width="1200" height="900" class="img-thumbnail mb-3" alt="Study in UK">
+                    <img src="assets/img/study-uk.png" width="1200" height="900" class="img-thumbnail mb-1" alt="Study in UK">
                     <!--<figcaption class="h5 link-dark text-center">Study in UK</figcaption>-->
                 </figure>
             </div>
             <div class="col-md-6 mb-4">
                 <figure>
-                    <img src="assets/img/job-uk.png" width="1200" height="900" class="img-thumbnail mb-3" alt="Job in UK">
+                    <img src="assets/img/job-uk.png" width="1200" height="900" class="img-thumbnail mb-1" alt="Job in UK">
                     <!--<figcaption class="h5 link-dark text-center">Job in UK</figcaption>-->
                 </figure>
             </div>
             <div class="col-md-6 mb-4">
                 <figure>
-                    <img src="assets/img/career-uk.png" width="1200" height="900" class="img-thumbnail mb-3" alt="Career in UK">
+                    <img src="assets/img/career-uk.png" width="1200" height="900" class="img-thumbnail mb-1" alt="Career in UK">
                     <!--<figcaption class="h5 link-dark text-center">Career in UK</figcaption>-->
                 </figure>
             </div>
             <div class="col-md-6 mb-4">
                 <figure>
-                    <img src="assets/img/settlement-uk.png" width="1200" height="900" class="img-thumbnail mb-3" alt="Settlement in UK">
+                    <img src="assets/img/settlement-uk.png" width="1200" height="900" class="img-thumbnail mb-1" alt="Settlement in UK">
                     <!--<figcaption class="h5 link-dark text-center">Settlement in UK</figcaption>-->
                 </figure>
             </div>
