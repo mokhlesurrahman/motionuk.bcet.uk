@@ -1,18 +1,31 @@
-﻿<!DOCTYPE html>
+﻿<?php
+require_once('adm/include/connect.php');
+?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>motionUK</title>
+    <title><?php echo strCompanyName; ?></title>
     <meta name="description"
-          content="Motion UK">
+          content="<?php echo strMetaDescription; ?>">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="css2.css?family=Merriweather:wght@400;700&family=Merriweather+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="assets/css/icons.css">
-    <link rel="icon" href="favicon.ico" type="image/png">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/bootstrap.js" defer=""></script>
+
+    <link rel="icon"
+        href="favicon.ico" type="image/png">
+    <link rel="stylesheet"
+          href="assets/css/icons.css">
+    <link rel="stylesheet"
+          href="assets/css/style.css">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/js/bootstrap.js"
+            defer=""></script>
   </head>
 
   <body>
@@ -21,7 +34,9 @@
       <nav class="navbar navbar-expand-md navbar-light py-3" aria-label="Main">
         <div class="container">
           <a href="index.php" class="navbar-brand text-dark">
-            <img src="assets/img/logo.png" alt="Motion UK">
+              <img src="<?php echo strWebsiteUrl;?>/cdn/logo/<?php echo strLogo;?>"
+                   alt="<?php echo strCompanyName;?>"
+                   class="img-responsive">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars fa-lg"></i>
@@ -41,7 +56,7 @@
 
       <div class="bg-skew bg-skew-light">
         <!-- Gallery -->
-        <div class="container py-5">
+        <div class="container pt-5">
           <div class="row">
             <div class="col-md-6 mb-4">
                 <figure>
@@ -76,16 +91,38 @@
       <div class="container py-5">
         <div class="row g-5">
           <div class="col-md-12 mb-1">
-              <img src="assets/img/slider-1.jpg" width="1200" height="900" class="img-thumbnail mb-1" alt="Saas landing page">
+              <img src="assets/img/slider-1.jpg" width="1200" height="900" class="img-thumbnail mb-1" alt="Landing page">
           </div>
             <div class="col-md-12 mb-1">
-                <img src="assets/img/slider-2.jpg" width="1200" height="900" class="img-thumbnail mb-1" alt="Saas landing page">
+                <img src="assets/img/slider-2.jpg" width="1200" height="900" class="img-thumbnail mb-1" alt="Landing page">
             </div>
             <div class="col-md-12 mb-1">
-                <img src="assets/img/slider-3.jpg" width="1200" height="900" class="img-thumbnail mb-1" alt="Saas landing page">
+                <img src="assets/img/slider-3.jpg" width="1200" height="900" class="img-thumbnail mb-1" alt="Landing page">
             </div>
         </div>
       </div>
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-md-12">
+            <div class="owl-carousel owl-theme">
+            <?php
+            $sql = "SELECT * FROM `dbt_slider` ORDER BY `intSliderID` DESC";
+            $query = mysqli_query($db_connection,$sql);
+            while ($obj = mysqli_fetch_array($query)) {
+            $pk = $obj['intSliderID'];
+            ?>
+            <div class="item" style="margin: 20px; border: 1px solid #fdfdfd;">
+                <img src="cdn/partner/<?php echo $obj['photo'];?>"
+                     class="img-responsive"
+                     alt="<?php echo $obj['strSmallHeader'];?>">
+            </div>
+            <?php
+            }
+            ?>
+            </div>
+            </div>
+        </div>
+    </div>
     </main>
     <footer class="bg-white pt-5" id="footer">
       <div class="container">
@@ -105,22 +142,30 @@
             <div class="col-lg-3">
                 <h2 class="h5">Phone Number:</h2>
                 <ul class="list-unstyled mb-4">
-                    <li class="mb-2">
-                        <i class="fab fa-whatsapp"></i> +880 1791-981818
-                    </li>
-                    <li class="mb-2">
-                        <i class="fab fa-whatsapp"></i> +880 1952-883939
-                    </li>
-                    <li class="mb-2">
-                        <i class="fab fa-whatsapp"></i> +880 1952-883939
-                    </li>
+	                <?php
+                    $phones = explode('|',strHeaderPhone);
+                    foreach ($phones as $phone){
+                        ?>
+                        <li class="mb-2">
+                            <a href="https://api.whatsapp.com/send?phone=<?php echo $phone;?>"
+                               data-toggle="tooltip"
+                               data-placement="top"
+                               title=""
+                               data-original-title="Whatsapp"
+                               target="_blank" style="text-decoration: none !important;">
+                                <i class="fab fa-whatsapp"></i> <?php echo $phone;?>
+                            </a>
+                        </li>
+                        <?php
+                    }
+                    ?>
                 </ul>
             </div>
             <div class="col-lg-3">
                 <h2 class="h5">Email Address</h2>
                 <ul class="list-unstyled mb-4">
                     <li class="mb-2">
-                        <i class="fas fa-envelope"></i> motionuk.study@gmail.com
+                        <i class="fas fa-envelope"></i> <?php echo strHeaderEmail;?>
                     </li>
                 </ul>
             </div>
@@ -148,4 +193,23 @@
       </div>
     </footer>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:false,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:4
+            },
+            1000:{
+                items:5
+            }
+        }
+    })
+</script>
 </html>
