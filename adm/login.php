@@ -20,7 +20,7 @@ if(isset($_SESSION['com_carsit_adm_usrId']) == false){
 				<div class="view-header">
 					<div class="header-icon"> <i class="ti-unlock"></i> </div>
 					<div class="header-title">
-						<h3><?php echo strCompanyAcronym?></h3>
+						<h2><?php echo strCompanyAcronym?></h2>
 						<small><strong>Please enter your credentials to login.</strong></small> </div>
 				</div>
 			</div>
