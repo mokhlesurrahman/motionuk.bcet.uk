@@ -108,14 +108,21 @@ if (mysqli_num_rows($qry_user_admin) > 0) {
 
         DEFINE("strMobileNumberStatus", $row['strMobileNumberStatus']);
         DEFINE("strOurInstructorPageStatus", $row['strOurInstructorPageStatus']);
-
-        DEFINE("strCompanyFacebook", $row['strCompanyFacebook']);
-        DEFINE("strCompanyTwitter", $row['strCompanyTwitter']);
-        DEFINE("strCompanyWhatsapp", $row['strCompanyWhatsapp']);
-        DEFINE("strCompanyAcronym", $row['strCompanyAcronym']);
-        DEFINE("strCompanyLinkedIn", $row['strCompanyLinkedIn']);
-        DEFINE("strCompanySlogan", $row['strCompanySlogan']);
-
+	
+	    DEFINE("strCompanyTwitter", $row['strCompanyTwitter']);
+	    DEFINE("strCompanyWhatsapp", $row['strCompanyWhatsapp']);
+	    DEFINE("strCompanyAcronym", $row['strCompanyAcronym']);
+	
+	
+	    DEFINE("strCompanyFacebook", $row['strCompanyFacebook']);
+	    DEFINE("strCompanyInstagram", $row['strCompanyInstagram']);
+	    DEFINE("strCompanyYouTube", $row['strCompanyYouTube']);
+	    DEFINE("strCompanyPinterest", $row['strCompanyPinterest']);
+	    DEFINE("strCompanyLinkedIn", $row['strCompanyLinkedIn']);
+	
+	
+	
+	    DEFINE("strCompanySlogan", $row['strCompanySlogan']);
  
  
         DEFINE("strContactInformation", $row['strContactInformation']);

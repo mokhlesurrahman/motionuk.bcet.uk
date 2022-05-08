@@ -46,8 +46,11 @@ $isShowPopup = isset($_POST['isShowPopup']) ? $_POST['isShowPopup'] : 'No';
 $strCompanyAcronym = isset($_POST['strCompanyAcronym']) ? $_POST['strCompanyAcronym'] : '';
 $strCompanySlogan = isset($_POST['strCompanySlogan']) ? $_POST['strCompanySlogan'] : '';
 $strCompanyTwitter = isset($_POST['strCompanyTwitter']) ? $_POST['strCompanyTwitter'] : '';
+
 $strCompanyFacebook = isset($_POST['strCompanyFacebook']) ? $_POST['strCompanyFacebook'] : '';
-$strCompanyWhatsApp = isset($_POST['strCompanyWhatsapp']) ? $_POST['strCompanyWhatsapp'] : '';
+$strCompanyInstagram = isset($_POST['strCompanyInstagram']) ? $_POST['strCompanyInstagram'] : '';
+$strCompanyYouTube = isset($_POST['strCompanyYouTube']) ? $_POST['strCompanyYouTube'] : '';
+$strCompanyPinterest = isset($_POST['strCompanyPinterest']) ? $_POST['strCompanyPinterest'] : '';
 $strCompanyLinkedIn = isset($_POST['strCompanyLinkedIn']) ? $_POST['strCompanyLinkedIn'] : '';
 
 $photo_popup = isset($_POST['photo_popup']) ? $_POST['photo_popup'] : '';
@@ -89,13 +92,15 @@ if ($strCompanyLogo != '') {
 		'strMobileNumberStatus',
         'strCompanyAcronym',
         'strCompanySlogan',
-        'strCompanyWhatsapp',
-        'strCompanyFacebook',
         'strCompanyTwitter',
-        'strCompanyLinkedIn',
 		'strOurInstructorPageStatus',
 		'strContactInformation',
-		'isShowPopup'
+		'isShowPopup',
+		'strCompanyFacebook',
+		'strCompanyInstagram',
+		'strCompanyYouTube',
+		'strCompanyPinterest',
+		'strCompanyLinkedIn'
 	) , array(
 		$strCompanyLogo,
 		$strCompanyAddress,
@@ -117,13 +122,15 @@ if ($strCompanyLogo != '') {
 		$strMobileNumberStatus,
         $strCompanyAcronym,
         $strCompanySlogan,
-        $strCompanyWhatsApp,
-        $strCompanyFacebook,
         $strCompanyTwitter,
-        $strCompanyLinkedIn,
 		$strOurInstructorPageStatus,
 		$strContactInformation,
-		$isShowPopup
+		$isShowPopup,
+		$strCompanyFacebook,
+		$strCompanyInstagram,
+		$strCompanyYouTube,
+		$strCompanyPinterest,
+		$strCompanyLinkedIn
 	) , 'intSettingsID = 1');
 	if ($update) {
 		if ($photo != '') {

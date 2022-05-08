@@ -130,33 +130,50 @@ if (isset($_SESSION['com_carsit_adm_usrId']) == true) {
                                 
                             </div>
                             
-                            <div class="row" style="display: none">
+                            <div class="row">
                                 <div class="col-sm-3">
-                                    <div class="form-group"><label>Facebook</label> <input type="text"
-                                                                                           class="form-control input-sm"
-                                                                                           name="strCompanyFacebook"
-                                                                                           value="<?php if (isset($rs_view['strCompanyFacebook'])) echo $rs_view['strCompanyFacebook']; ?>"/>
+                                    <div class="form-group">
+                                        <label>Facebook</label>
+                                        <input type="text"
+                                               class="form-control input-sm"
+                                               name="strCompanyFacebook"
+                                               value="<?php if (isset($rs_view['strCompanyFacebook'])) echo $rs_view['strCompanyFacebook']; ?>"/>
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
-                                    <div class="form-group"><label>Youtube</label> <input type="text"
-                                                                                          class="form-control input-sm"
-                                                                                          name="strCompanyTwitter"
-                                                                                          value="<?php if (isset($rs_view['strCompanyTwitter'])) echo $rs_view['strCompanyTwitter']; ?>"/>
+                                    <div class="form-group">
+                                        <label>Instagram</label>
+                                        <input type="text"
+                                               class="form-control input-sm"
+                                               name="strCompanyInstagram"
+                                               value="<?php if (isset($rs_view['strCompanyInstagram'])) echo $rs_view['strCompanyInstagram']; ?>"/>
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
-                                    <div class="form-group"><label>Whatsapp</label> <input type="text"
-                                                                                           class="form-control input-sm"
-                                                                                           name="strCompanyWhatsapp"
-                                                                                           value="<?php if (isset($rs_view['strCompanyWhatsapp'])) echo $rs_view['strCompanyWhatsapp']; ?>"/>
+                                    <div class="form-group">
+                                        <label>Youtube</label>
+                                        <input type="text"
+                                               class="form-control input-sm"
+                                               name="strCompanyYouTube"
+                                               value="<?php if (isset($rs_view['strCompanyYouTube'])) echo $rs_view['strCompanyYouTube']; ?>"/>
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
-                                    <div class="form-group"><label>LinkedIn</label> <input type="text"
-                                                                                           class="form-control input-sm"
-                                                                                           name="strCompanyLinkedIn"
-                                                                                           value="<?php if (isset($rs_view['strCompanyLinkedIn'])) echo $rs_view['strCompanyLinkedIn']; ?>"/>
+                                    <div class="form-group">
+                                        <label>Pinterest</label>
+                                        <input type="text"
+                                               class="form-control input-sm"
+                                               name="strCompanyPinterest"
+                                               value="<?php if (isset($rs_view['strCompanyPinterest'])) echo $rs_view['strCompanyPinterest']; ?>"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>LinkedIn</label>
+                                        <input type="text"
+                                               class="form-control input-sm"
+                                               name="strCompanyLinkedIn"
+                                               value="<?php if (isset($rs_view['strCompanyLinkedIn'])) echo $rs_view['strCompanyLinkedIn']; ?>"/>
                                     </div>
                                 </div>
                             </div>

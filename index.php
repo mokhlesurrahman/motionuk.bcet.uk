@@ -136,7 +136,6 @@ require_once('adm/include/connect.php');
         <div class="row">
             <div class="col-lg-6">
                 <h2 class="h5">Contact Address:</h2>
-                
                 <ul class="list-unstyled mb-4">
                     <li class="mb-2">
                     <b>UK:</b> 80a Ashfield Street, Unit 4, London, England, E1 2BJ
@@ -144,6 +143,73 @@ require_once('adm/include/connect.php');
                     <li class="mb-2">
                     <b>Bangladesh:</b> R H Home Centre, 74/B/1 Green Road, 1st Floor, Dhaka 1215
                     </li>
+                </ul>
+                <ul class="list-inline">
+		            <?php
+		            if (strCompanyFacebook != ''){
+			            ?>
+                        <li class="list-inline-item">
+                            <a class="icon icon-sm icon-secondary"
+                               href="<?php echo strCompanyFacebook;?>">
+                                <i class="icon-inner fab fa-facebook" aria-hidden="true"></i>
+                                <span class="sr-only">Facebook</span>
+                            </a>
+                        </li>
+			            <?php
+		            }
+		            ?>
+		            <?php
+		            if (strCompanyInstagram != ''){
+			            ?>
+                        <li class="list-inline-item">
+                            <a class="icon icon-sm icon-secondary"
+                               href="<?php echo strCompanyInstagram;?>">
+                                <i class="icon-inner fab fa-instagram" aria-hidden="true"></i>
+                                <span class="sr-only">Instagram</span>
+                            </a>
+                        </li>
+			            <?php
+		            }
+		            ?>
+		            <?php
+		            if (strCompanyYouTube != ''){
+			            ?>
+                        <li class="list-inline-item">
+                            <a class="icon icon-sm icon-secondary"
+                               href="<?php echo strCompanyYouTube;?>">
+                                <i class="icon-inner fab fa-youtube" aria-hidden="true"></i>
+                                <span class="sr-only">YouTube</span>
+                            </a>
+                        </li>
+			            <?php
+		            }
+		            ?>
+		            <?php
+		            if (strCompanyPinterest != ''){
+			            ?>
+                        <li class="list-inline-item">
+                            <a class="icon icon-sm icon-secondary"
+                               href="<?php echo strCompanyPinterest;?>">
+                                <i class="icon-inner fab fa-pinterest" aria-hidden="true"></i>
+                                <span class="sr-only">Pinterest</span>
+                            </a>
+                        </li>
+			            <?php
+		            }
+		            ?>
+		            <?php
+		            if (strCompanyLinkedIn != ''){
+			            ?>
+                        <li class="list-inline-item">
+                            <a class="icon icon-sm icon-secondary"
+                               href="<?php echo strCompanyLinkedIn;?>">
+                                <i class="icon-inner fab fa-linkedin" aria-hidden="true"></i>
+                                <span class="sr-only">LinkedIn</span>
+                            </a>
+                        </li>
+			            <?php
+		            }
+		            ?>
                 </ul>
             </div>
             <div class="col-lg-3">
@@ -185,17 +251,6 @@ require_once('adm/include/connect.php');
           <div class="small mb-3">
               Copyright © <?php echo date('Y');?> All rights reserved
           </div>
-          <!--<ul class="list-inline">
-            <li class="list-inline-item">
-              <a class="icon icon-sm icon-secondary" href="#"><i class="icon-inner fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Twitter</span></a>
-            </li>
-            <li class="list-inline-item">
-              <a class="icon icon-sm icon-secondary" href="#"><i class="icon-inner fab fa-facebook-f" aria-hidden="true"></i><span class="sr-only">Facebook</span></a>
-            </li>
-            <li class="list-inline-item">
-              <a class="icon icon-sm icon-secondary" href="#"><i class="icon-inner fab fa-linkedin-in" aria-hidden="true"></i><span class="sr-only">Linkedin</span></a>
-            </li>
-          </ul>-->
         </div>
       </div>
     </footer>
