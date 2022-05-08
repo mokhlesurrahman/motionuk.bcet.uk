@@ -1,0 +1,2 @@
+ALTER TABLE `tbl_settings` ADD `strPopupImage` VARCHAR(255) NULL AFTER `strContactInformation`;
+ALTER TABLE `tbl_settings` ADD `isShowPopup` ENUM('Yes','No') NOT NULL DEFAULT 'No' AFTER `strPopupImage`;

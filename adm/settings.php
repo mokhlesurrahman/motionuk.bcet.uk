@@ -4,6 +4,12 @@ $random_number = random_num(16);
 $_SESSION['INCLUDE_CHECK'] = $random_number;
 if (isset($_SESSION['com_carsit_adm_usrId']) == true) {
     ?>
+
+    <script type="text/javascript"
+            src="plugins/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript"
+            src="plugins/ckeditor/adapters/jquery.js"></script>
+    
     <div class="content-header">
         <div class="header-icon">
             <i class="ti-close"></i>
@@ -31,7 +37,8 @@ if (isset($_SESSION['com_carsit_adm_usrId']) == true) {
                             <div class="form-result"></div>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="form-group"><label>Company Logo</label>
+                                    <div class="form-group">
+                                        <label>Company Logo</label>
                                         <input type="file" name="file"
                                                id="file"/>
                                     </div>
@@ -154,9 +161,65 @@ if (isset($_SESSION['com_carsit_adm_usrId']) == true) {
                                 </div>
                             </div>
                             <div class="clearfix"></div>
-                            <div class="row" style="display: none">
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Show Popup Image</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio"
+                                                       name="isShowPopup"
+                                                       class=""
+                                                       value="Yes" <?php if (@$rs_view['isShowPopup'] == 'Yes') echo 'checked="checked"'; ?>>
+                                                Yes
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio"
+                                                       name="isShowPopup"
+                                                       class=""
+                                                       value="No" <?php if (@$rs_view['isShowPopup'] == 'No') echo 'checked="checked"'; ?>>
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Popup Image</label>
+                                        <input type="file"
+                                               name="file_popup"
+                                               id="file_popup"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div id="loader_popup"
+                                         class="display-hide">
+                                        <img src="img/please_wait_animation.gif"
+                                             class="img-responsive col-sm-8"/>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="col-sm-6">
+                                            <img id="imgpreview_popup"
+                                                 src="../cdn/logo/<?php if (isset($rs_view['strPopupImage'])) echo $rs_view['strPopupImage']; ?>"
+                                                 class="img-responsive"/>
+                                        </div>
+                                    </div>
+                                    <div id='preview_popup'></div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-sm-12">
-                                    <div class="form-group"><label>Contact Information</label> <textarea
+                                    <div class="form-group">
+                                        <label>Popup Text</label>
+                                        <textarea
                                                 class="form-control required ckeditor"
                                                 id="strContactInformation"
                                                 placeholder=""
@@ -209,7 +272,34 @@ if (isset($_SESSION['com_carsit_adm_usrId']) == true) {
             </div>
         </div>
     </section>
-    <script type="text/javascript"> $("#file").on("change", function () {
+    <script type="text/javascript">
+        $("#file_popup").on("change", function () {
+            var form = new FormData();
+            var file_data = $("#file_popup").prop("files")[0];
+            form.append("image", file_data);
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "submit/imageupload_popup.php",
+                "method": "POST",
+                "processData": false,
+                "contentType": false,
+                "mimeType": "multipart/form-data",
+                "data": form
+            }
+            jQuery('.btn-update').hide();
+            jQuery('#loader_popup').show();
+            jQuery('#imgpreview_popup').hide();
+            $.ajax(settings).done(function (response) {
+                jQuery('#preview_popup').html(response);
+                jQuery('.btn-update').show();
+                jQuery('#loader_popup').hide();
+                jQuery('#imgpreview_popup').show();
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $("#file").on("change", function () {
             var form = new FormData();
             var file_data = $("#file").prop("files")[0];
             form.append("image", file_data);
@@ -235,6 +325,10 @@ if (isset($_SESSION['com_carsit_adm_usrId']) == true) {
         });
         $('.btn-update').click(function () {
             if ($("#settings_form").valid()) {
+                for (instance in CKEDITOR.instances) {
+                    CKEDITOR.instances[instance].updateElement();
+                }
+                
                 var datastring = $("#settings_form").serialize();
                 $(".btn-update").button('loading');
                 $.ajax({
@@ -255,5 +349,14 @@ if (isset($_SESSION['com_carsit_adm_usrId']) == true) {
                     }
                 });
             }
-        }); </script> <?php } else { ?>
-    <script type="text/javascript"> window.location.href = ('index.php'); </script> <?php } ?>
+        });
+    </script>
+<?php
+} else {
+    ?>
+    <script type="text/javascript">
+        window.location.href = ('index.php');
+    </script>
+    <?php
+}
+?>

@@ -119,6 +119,9 @@ if (mysqli_num_rows($qry_user_admin) > 0) {
  
  
         DEFINE("strContactInformation", $row['strContactInformation']);
+        DEFINE("strPopupText", $row['strContactInformation']);
+        DEFINE("strPopupImage", $row['strPopupImage']);
+        DEFINE("isShowPopup", $row['isShowPopup']);
     }
 }
 

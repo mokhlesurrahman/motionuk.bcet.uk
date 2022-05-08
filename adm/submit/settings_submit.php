@@ -40,6 +40,7 @@ $meta_description = isset($_POST['meta_description']) ? $_POST['meta_description
 $date_format_id = isset($_POST['date_format_id']) ? $_POST['date_format_id'] : '';
 $currency_code = isset($_POST['currency_code']) ? $_POST['currency_code'] : '';
 $strOurInstructorPageStatus = isset($_POST['strOurInstructorPageStatus']) ? $_POST['strOurInstructorPageStatus'] : 'Hide';
+$isShowPopup = isset($_POST['isShowPopup']) ? $_POST['isShowPopup'] : 'No';
 
 
 $strCompanyAcronym = isset($_POST['strCompanyAcronym']) ? $_POST['strCompanyAcronym'] : '';
@@ -49,6 +50,7 @@ $strCompanyFacebook = isset($_POST['strCompanyFacebook']) ? $_POST['strCompanyFa
 $strCompanyWhatsApp = isset($_POST['strCompanyWhatsapp']) ? $_POST['strCompanyWhatsapp'] : '';
 $strCompanyLinkedIn = isset($_POST['strCompanyLinkedIn']) ? $_POST['strCompanyLinkedIn'] : '';
 
+$photo_popup = isset($_POST['photo_popup']) ? $_POST['photo_popup'] : '';
 $photo = isset($_POST['photo']) ? $_POST['photo'] : '';
 /*Create uploads directory if necessary*/
 if(!file_exists('../../cdn')) mkdir('../../cdn');
@@ -92,7 +94,8 @@ if ($strCompanyLogo != '') {
         'strCompanyTwitter',
         'strCompanyLinkedIn',
 		'strOurInstructorPageStatus',
-		'strContactInformation'
+		'strContactInformation',
+		'isShowPopup'
 	) , array(
 		$strCompanyLogo,
 		$strCompanyAddress,
@@ -119,7 +122,8 @@ if ($strCompanyLogo != '') {
         $strCompanyTwitter,
         $strCompanyLinkedIn,
 		$strOurInstructorPageStatus,
-		$strContactInformation
+		$strContactInformation,
+		$isShowPopup
 	) , 'intSettingsID = 1');
 	if ($update) {
 		if ($photo != '') {
@@ -130,6 +134,22 @@ if ($strCompanyLogo != '') {
 			) , 'intSettingsID = 1');
 			rename($imageMain, $outputDirectoryMain);
             rename($imageThumbs, $outputDirectoryThumbs);
+		}
+		if ($photo_popup != '') {
+			$update2 = update('tbl_settings', array(
+				'strPopupImage'
+			) , array(
+				$photo_popup
+			) , 'intSettingsID = 1');
+			
+			$outputDirectoryMainPopup   = "../../cdn/logo/".$photo_popup;
+			$outputDirectoryThumbsPopup = "../../cdn/logo/thumbs/small".$photo_popup;
+			
+			$imageMainPopup   = 'temp/thumbs/'.$photo_popup;
+			$imageThumbsPopup = 'temp/thumbs/small'.$photo_popup;
+			
+			rename($imageMainPopup, $outputDirectoryMainPopup);
+			rename($imageThumbsPopup, $outputDirectoryThumbsPopup);
 		}
         if (count($file_name) > 0) {
             foreach ($file_name as $key => $val) {
