@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2022 at 11:16 AM
+-- Generation Time: May 08, 2022 at 08:51 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.3.0
 
@@ -67,7 +67,10 @@ CREATE TABLE `dbt_slider` (
 INSERT INTO `dbt_slider` (`intSliderID`, `intSisterID`, `strSmallHeader`, `strTopHeader`, `strShortLink`, `strDescription`, `photo`) VALUES
 (1, 1, 'Anglia Ruskin University - ARU', '', '', '', '202204282105.png'),
 (2, 1, 'Aston University', '', '', '', '202204283297.png'),
-(3, 1, 'Bangor University', '', '', '', '202204283217.png');
+(3, 1, 'Bangor University', '', '', '', '202204283217.png'),
+(4, 1, 'Anglia Ruskin University - ARU', '', '', '', '202204282105.png'),
+(5, 1, 'Aston University', '', '', '', '202204283297.png'),
+(6, 1, 'Bangor University', '', '', '', '202204283217.png');
 
 -- --------------------------------------------------------
 
@@ -154,15 +157,17 @@ CREATE TABLE `tbl_settings` (
   `provider` varchar(255) NOT NULL,
   `president_video` varchar(255) NOT NULL,
   `strOurInstructorPageStatus` enum('Show','Hide') NOT NULL DEFAULT 'Hide',
-  `strContactInformation` text
+  `strContactInformation` text,
+  `strPopupImage` varchar(255) DEFAULT NULL,
+  `isShowPopup` enum('Yes','No') NOT NULL DEFAULT 'No'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_settings`
 --
 
-INSERT INTO `tbl_settings` (`intSettingsID`, `strCompanyLogo`, `strCompanyAddress`, `adminEmail`, `master_password`, `strHeaderEmail`, `strHeaderPhone`, `strMobileNumberStatus`, `strHomePageLayOut`, `strLogo`, `strProjectComplated`, `strConsultants`, `strAwardsWining`, `strSatisfiedCustomers`, `strShortDescription`, `date_format_id`, `currency_code`, `settings`, `strTeamDescription`, `strInstructorDescription`, `meta_keyword`, `meta_description`, `strCompanyFacebook`, `strCompanyTwitter`, `strCompanyWhatsapp`, `strCompanyLinkedIn`, `strCompanyAcronym`, `strCompanySlogan`, `course_accreditation`, `membership`, `provider`, `president_video`, `strOurInstructorPageStatus`, `strContactInformation`) VALUES
-(1, 'Motion UK', 'Zenith Tower, House: 8/A/1, Dhanmondi, Road no. 14, Dhaka  - 1209', 'rezababu@gmail.com', '', 'motionuk.study@gmail.com', '+880 1791-981818|+880 1952-883939|+880 1952-883939', 'Show', 'Single', '202204288371.png', 0, 0, 0, 0, 'Coming Soon...', 0, '', 'general', '', '', 'Coming Soon...', 'Coming Soon...', 'https://www.facebook.com/', 'https://twitter.com/', 'https://api.whatsapp.com/send?phone=+447960272886', 'https://www.linkedin.com/', 'CARSIT', '', '', '', '', '', 'Hide', 'Prof. Dr. Karim Mohammed Rezaul<br>\r\nZenith Tower <br>\r\nHouse: 8/A/1(Flat E1)<br>\r\nDhanmondi, Road no. 14 (new) [ old 29, behind Sobhanbaag masjid) <br>\r\nDhaka 1209<br>\r\nEmail: rezababu@gmail.com<br>\r\nWhatspp: +447960272886<br>');
+INSERT INTO `tbl_settings` (`intSettingsID`, `strCompanyLogo`, `strCompanyAddress`, `adminEmail`, `master_password`, `strHeaderEmail`, `strHeaderPhone`, `strMobileNumberStatus`, `strHomePageLayOut`, `strLogo`, `strProjectComplated`, `strConsultants`, `strAwardsWining`, `strSatisfiedCustomers`, `strShortDescription`, `date_format_id`, `currency_code`, `settings`, `strTeamDescription`, `strInstructorDescription`, `meta_keyword`, `meta_description`, `strCompanyFacebook`, `strCompanyTwitter`, `strCompanyWhatsapp`, `strCompanyLinkedIn`, `strCompanyAcronym`, `strCompanySlogan`, `course_accreditation`, `membership`, `provider`, `president_video`, `strOurInstructorPageStatus`, `strContactInformation`, `strPopupImage`, `isShowPopup`) VALUES
+(1, 'Motion UK', 'Zenith Tower, House: 8/A/1, Dhanmondi, Road no. 14, Dhaka  - 1209', 'rezababu@gmail.com', '', 'motionuk.study@gmail.com', '+880 1791-981818|+880 1952-883939|+880 1952-883939', 'Show', 'Single', '202204288371.png', 0, 0, 0, 0, 'Coming Soon...', 0, '', 'general', '', '', 'Coming Soon...', 'Coming Soon...', 'https://www.facebook.com/', 'https://twitter.com/', 'https://api.whatsapp.com/send?phone=+447960272886', 'https://www.linkedin.com/', 'CARSIT', '', '', '', '', '', 'Hide', '', '202205085277.png', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -282,7 +287,7 @@ ALTER TABLE `dbt_sister_concern`
 -- AUTO_INCREMENT for table `dbt_slider`
 --
 ALTER TABLE `dbt_slider`
-  MODIFY `intSliderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `intSliderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_admin`

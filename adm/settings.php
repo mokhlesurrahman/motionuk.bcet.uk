@@ -186,8 +186,6 @@ if (isset($_SESSION['com_carsit_adm_usrId']) == true) {
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
                             
                             <div class="row">
