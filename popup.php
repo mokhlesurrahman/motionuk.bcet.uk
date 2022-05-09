@@ -28,8 +28,8 @@
                         background: #FFF;
                         padding: 0px;
                         width: auto;
-                        /*max-width: 500px;*/
-                        max-width: 50%;
+                        max-width: 500px;
+                        /*max-width: 50%;*/
                         margin: 20px auto;
                         transition: 1s all;
                         border-radius: 0px;
