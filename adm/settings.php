@@ -86,11 +86,12 @@ if (isset($_SESSION['com_carsit_adm_usrId']) == true) {
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-3">
-                                    <div class="form-group"><label>Company Address</label> <input type="text"
-                                                                                                  class="form-control input-sm required"
-                                                                                                  name="strCompanyAddress"
-                                                                                                  value="<?php if (isset($rs_view['strCompanyAddress'])) echo $rs_view['strCompanyAddress']; ?>"/>
+                                <div class="col-sm-12">
+                                    <div class="form-group"><label>Company Address</label>
+                                        <input type="text"
+                                               class="form-control input-sm required"
+                                               name="strCompanyAddress"
+                                               value="<?php if (isset($rs_view['strCompanyAddress'])) echo $rs_view['strCompanyAddress']; ?>"/>
                                     </div>
                                 </div>
                                 <div class="col-sm-3">

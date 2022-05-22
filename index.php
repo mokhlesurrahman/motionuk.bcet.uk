@@ -138,10 +138,7 @@ require_once('adm/include/connect.php');
                 <h2 class="h5">Contact Address:</h2>
                 <ul class="list-unstyled mb-4">
                     <li class="mb-2">
-                    <b>UK:</b> 80a Ashfield Street, Unit 4, London, England, E1 2BJ
-                    </li>
-                    <li class="mb-2">
-                    <b>Bangladesh:</b> R H Home Centre, 74/B/1 Green Road, 1st Floor, Dhaka 1215
+                        <?php echo strCompanyAddress;?>
                     </li>
                 </ul>
                 <ul class="list-inline">
