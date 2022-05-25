@@ -51,6 +51,8 @@ require_once('adm/include/connect.php');
           <div class="collapse navbar-collapse" id="navbar">
             <div class="navbar-nav mt-3 mt-md-0 ms-auto">
               <a class="nav-link px-md-3" href="index.php">Home</a>
+              <a class="nav-link px-md-3" href="index.php#settlement">Study/Job/Career/Settlement at uk</a>
+              <a class="nav-link px-md-3" href="index.php#partners">Partners</a>
             </div>
             <a class="btn btn-primary btn-sm rounded-pill mt-3 mt-md-0 ms-md-3"
                href="index.php#footer">Contact us</a>
@@ -103,12 +105,12 @@ require_once('adm/include/connect.php');
             <div class="col-md-12 mb-1">
                 <img src="assets/img/slider-2.jpg" width="1200" height="900" class="img-thumbnail mb-1" alt="Landing page">
             </div>
-            <div class="col-md-12 mb-1">
+            <div class="col-md-12 mb-1" id="settlement">
                 <img src="assets/img/slider-3.jpg" width="1200" height="900" class="img-thumbnail mb-1" alt="Landing page">
             </div>
         </div>
       </div>
-    <div class="container py-5">
+    <div class="container py-5" id="partners">
         <div class="row g-5">
             <div class="col-md-12">
             <div class="owl-carousel owl-theme">
