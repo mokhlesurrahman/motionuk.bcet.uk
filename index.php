@@ -51,7 +51,7 @@ require_once('adm/include/connect.php');
           <div class="collapse navbar-collapse" id="navbar">
             <div class="navbar-nav mt-3 mt-md-0 ms-auto">
               <a class="nav-link px-md-3" href="index.php">Home</a>
-              <a class="nav-link px-md-3" href="index.php#settlement">Study/Job/Career/Settlement at uk</a>
+              <a class="nav-link px-md-3" href="index.php#settlement">STUDY/JOB/CAREER/SETTLEMENT IN UK</a>
               <a class="nav-link px-md-3" href="index.php#partners">Partners</a>
             </div>
             <a class="btn btn-primary btn-sm rounded-pill mt-3 mt-md-0 ms-md-3"
